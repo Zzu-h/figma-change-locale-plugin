@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-import { useRandomQuotes } from './hooks/useRandomQuotes';
-import { requestGenerateRandomQuoteToPlugin } from './lib/figma';
+import RandomQuote from './study/RandomQuotes';
+import Running from './running/Running';
+import LoadExcel from './loadexcel/LoadExcel';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
-  const getRandomQuote = useRandomQuotes();
 
-  const generateRandomQuote = async () => {
-    setIsLoading(true);
-    const randomQuote = await getRandomQuote();
-    console.log(randomQuote); // 수정 예정
-    requestGenerateRandomQuoteToPlugin(randomQuote);
-    setIsLoading(false);
-  };
+  const [completFlag, setCompleteFlag] = useState(false);
+  const [keyId, setKeyId] = useState("");
+
+  const completeCallback = (keyId) => {
+    setCompleteFlag(true)
+    setKeyId(keyId)
+  }
 
   return (
     <div>
-      <text>Select Text Node and Click</text>
-      <button onClick={generateRandomQuote}>
-        {isLoading ? "Loading..." : "Random Quote"}
-      </button>
+      {completFlag ? <text>{keyId}</text> : <text>please set Key ID</text>}
+      {!completFlag ? <LoadExcel callback={completeCallback}/> : <Running keyId={keyId}/>}
     </div>
   );
 }

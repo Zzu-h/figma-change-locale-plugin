@@ -5,9 +5,9 @@ export function requestToPlugin<T>(payload: T) {
   parent.postMessage({ pluginMessage: payload }, "*");
 }
 
-export function requestGenerateRandomQuoteToPlugin(randomQuote: Quote) {
+export function requestGenerateRandomQuoteToPlugin(data: {keyId: string, language: string}) {
   requestToPlugin<PluginMessagePayload>({
-    type: "generateRandomQuote",
-    randomQuote,
+    type: "switchLan",
+    data,
   });
 }

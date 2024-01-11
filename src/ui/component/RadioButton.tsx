@@ -4,13 +4,13 @@ interface RadioButtonProps {
     id: string;
     label: string;
     groupName: string;
-    onChange: (id: string) => void;
+    onChange: (id: string, label: string) => void;
   }
   
 const RadioButton: React.FC<RadioButtonProps> = ({ id, label, groupName, onChange }) => {
     const handleRadioButtonChange = (event: ChangeEvent<HTMLInputElement>) => {
       if (event.target.checked) {
-        onChange(id);
+        onChange(id, label);
       }
     };
   
