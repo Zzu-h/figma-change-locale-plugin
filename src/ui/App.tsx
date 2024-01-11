@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import RandomQuote from './study/RandomQuotes';
 import Running from './running/Running';
 import LoadExcel from './loadexcel/LoadExcel';
 
@@ -15,12 +14,10 @@ function App() {
 
   return (
     <div>
-      <RandomQuote />
+      {completFlag ? <text>{keyId}</text> : <text>please set Key ID</text>}
+      {!completFlag ? <LoadExcel callback={completeCallback}/> : <Running keyId={keyId}/>}
     </div>
   );
 }
 
 export default App;
-
-//{completFlag ? <text>{keyId}</text> : <text>please set Key ID</text>}
-//{!completFlag ? <LoadExcel callback={completeCallback}/> : <Running keyId={keyId}/>}

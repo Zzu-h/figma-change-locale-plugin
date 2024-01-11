@@ -30,7 +30,6 @@ export class ExcelUtil {
           const parsedData = values.map((row: any[]) => {
             const entry = new Map<string, any>();
             keys.forEach((key: string, index: number) => {
-              console.log(key + " : " + row[index])
               entry.set(key, row[index]);
             });
             return entry;
@@ -39,8 +38,6 @@ export class ExcelUtil {
           parsedData.forEach((item) => {
             GlobalVars.mapData.set(item.get(keyId), item);
           });
-
-          //console.log(parsedData);
 
           resolve(parsedData);
         } else {

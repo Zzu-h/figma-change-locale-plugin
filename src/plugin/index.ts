@@ -11,6 +11,7 @@ function isPayload(payload: unknown): payload is PluginMessagePayload {
   }
   
   function switchLan({ data }: PluginMessagePayload) {
+    console.log(data);
     // 1. 현재 사용자가 선택한 노드를 가지고 와서
     const currentSelectionNode = figma.currentPage.selection[0];
   
@@ -21,8 +22,8 @@ function isPayload(payload: unknown): payload is PluginMessagePayload {
             style: "Regular",
           };
       // 2-1. 텍스트 노드라면 내용을 인용문으로 대체합니다.
-      currentSelectionNode.characters = `${data.text} - ${
-        data.author || "Unknown"
+      currentSelectionNode.characters = `${data.keyId} - ${
+        data.language || "Unknown"
       }`;
     } else {
       // 2-2. 텍스트 노드가 아니라면 에러를 던집니다.

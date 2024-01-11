@@ -1,14 +1,14 @@
 // src/shared/index.ts
-export type Quote = {
-  author: string | null;
-  text: string;
+export type Language = {
+  keyId: string | null;
+  language: string;
 };
 
 export type PluginAction = "switchLan";
 
 export type PluginMessagePayload = {
   type: PluginAction;
-  data: Quote;
+  data: Language;
 };
 
 // src/shared/index.ts
