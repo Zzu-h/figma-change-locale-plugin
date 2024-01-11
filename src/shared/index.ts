@@ -10,7 +10,7 @@ export type PluginAction = "switchLan";
 
 export type PluginMessagePayload = {
   type: PluginAction;
-  data: {keyId: string, language: string};
+  randomQuote: Quote;
 };
 
 // src/shared/index.ts

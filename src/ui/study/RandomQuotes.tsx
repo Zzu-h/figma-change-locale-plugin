@@ -10,7 +10,7 @@ const RandomQuote: React.FC = () => {
   const generateRandomQuote = async () => {
       setIsLoading(true);
       const randomQuote = await getRandomQuote();
-      //requestGenerateRandomQuoteToPlugin("randomQuote");
+      requestGenerateRandomQuoteToPlugin(randomQuote);
       setIsLoading(false);
   };
 

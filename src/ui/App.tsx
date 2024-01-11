@@ -15,10 +15,12 @@ function App() {
 
   return (
     <div>
-      {completFlag ? <text>{keyId}</text> : <text>please set Key ID</text>}
-      {!completFlag ? <LoadExcel callback={completeCallback}/> : <Running keyId={keyId}/>}
+      <RandomQuote />
     </div>
   );
 }
 
 export default App;
+
+//{completFlag ? <text>{keyId}</text> : <text>please set Key ID</text>}
+//{!completFlag ? <LoadExcel callback={completeCallback}/> : <Running keyId={keyId}/>}

@@ -12,7 +12,7 @@ function Running({keyId}){
 
   const onClickRunButton = () => {
     console.log(GlobalVars.lanList)
-    requestGenerateRandomQuoteToPlugin({keyId: keyId, language: selectedOption});
+    //requestGenerateRandomQuoteToPlugin({keyId: keyId, language: selectedOption});
   }
 
   return (
