@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 // src/shared/index.ts
 export type Quote = {
   author: string | null;
@@ -10,7 +8,7 @@ export type PluginAction = "switchLan";
 
 export type PluginMessagePayload = {
   type: PluginAction;
-  randomQuote: Quote;
+  data: Quote;
 };
 
 // src/shared/index.ts
