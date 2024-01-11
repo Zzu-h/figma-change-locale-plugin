@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import RadioButton from '../component/RadioButton';
 import EditText from '../component/EditText';
-import { showToast } from '../../plugin';
 
 const Running: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
