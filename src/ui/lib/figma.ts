@@ -5,7 +5,7 @@ export function requestToPlugin<T>(payload: T) {
   parent.postMessage({ pluginMessage: payload }, "*");
 }
 
-export function requestGenerateRandomQuoteToPlugin(data: Language) {
+export function updateTextToPlugin(data: Language) {
   requestToPlugin<PluginMessagePayload>({
     type: "switchLan",
     data,

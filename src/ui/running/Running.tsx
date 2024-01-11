@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import RadioButton from '../component/RadioButton';
 import { GlobalVars } from '../../shared';
-import { requestGenerateRandomQuoteToPlugin } from '../lib/figma';
+import { updateTextToPlugin } from '../lib/figma';
 
 function Running({keyId}){
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -11,7 +11,7 @@ function Running({keyId}){
   };
 
   const onClickRunButton = () => {
-    requestGenerateRandomQuoteToPlugin({keyId: keyId, language: selectedOption});
+    updateTextToPlugin({keyId: keyId, language: selectedOption});
   }
 
   return (
