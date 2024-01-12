@@ -38,7 +38,7 @@ export class ExcelUtil {
           parsedData.forEach((item) => {
             GlobalVars.mapData.set(item.get(keyId), item);
           });
-
+          console.log(GlobalVars.mapData);
           resolve(parsedData);
         } else {
           resolve(null);
