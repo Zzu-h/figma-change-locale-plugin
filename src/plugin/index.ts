@@ -11,7 +11,8 @@ function isPayload(payload: unknown): payload is PluginMessagePayload {
   }
   
   function switchLan({ data }: PluginMessagePayload) {
-    console.log(GlobalVars.mapData);
+    const deserializedData: { [key: string]: { [innerKey: string]: string } } = JSON.parse(data.dataSet);
+
     figma.currentPage.findAll((node) => {
       if (node.type === "TEXT" && node.name[0] == '#') {
         var temp = node.name;
@@ -20,13 +21,12 @@ function isPayload(payload: unknown): payload is PluginMessagePayload {
           family: "Roboto",
           style: "Regular",
         };
-        console.log(GlobalVars.mapData);
-        //node.characters = GlobalVars.mapData[temp.replace('#', '')][data.language]
+        node.characters = deserializedData[temp.replace('#', '')][data.language]
       }
       return false;
     })
   }
-
+ 
   async function loadFonts() {
     await figma.loadFontAsync({
       family: "Roboto",

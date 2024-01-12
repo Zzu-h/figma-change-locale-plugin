@@ -11,8 +11,23 @@ function Running({keyId}){
   };
 
   const onClickRunButton = () => {
-    updateTextToPlugin({keyId: keyId, language: selectedOption});
+    var tempData = JSON.stringify(Object.fromEntries(GlobalVars.mapData));
+    updateTextToPlugin({keyId: keyId, language: selectedOption, dataSet: mapToString(GlobalVars.mapData)});
   }
+
+  function mapToString(inputMap: Map<string, Map<string, string>>): string {
+    const serializedMap: Record<string, Record<string, string>> = {};
+  
+    inputMap.forEach((innerMap, key) => {
+      serializedMap[key] = {};
+      innerMap.forEach((value, innerKey) => {
+        serializedMap[key][innerKey] = value;
+      });
+    });
+  
+    return JSON.stringify(serializedMap);
+  }
+  
 
   return (
     <div>

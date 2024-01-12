@@ -2,6 +2,7 @@
 export type Language = {
   keyId: string | null;
   language: string;
+  dataSet: string;
 };
 
 export type PluginAction = "switchLan";
@@ -18,6 +19,6 @@ export type PluginCallbackFunction<T = void> = (
 
 export class GlobalVars {
   public static datas: Object[];
-  public static mapData = new Map<string, Map<string, any>>();
+  public static mapData = new Map<string, Map<string, string>>();
   public static lanList: Array<string> = [];
 }

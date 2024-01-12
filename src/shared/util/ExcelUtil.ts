@@ -1,5 +1,5 @@
 import * as XLSX from 'xlsx';
-import { GlobalVars } from '../../shared';
+import { GlobalVars } from '..';
 
 export class ExcelUtil {
   static parseExcelFile(file: File, keyId: string): Promise<object[] | null> {
@@ -38,7 +38,7 @@ export class ExcelUtil {
           parsedData.forEach((item) => {
             GlobalVars.mapData.set(item.get(keyId), item);
           });
-          console.log(GlobalVars.mapData);
+
           resolve(parsedData);
         } else {
           resolve(null);

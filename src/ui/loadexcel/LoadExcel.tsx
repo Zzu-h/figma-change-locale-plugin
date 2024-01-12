@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import EditText from '../component/EditText';
-import { ExcelUtil } from '../util/ExcelUtil';
 import { GlobalVars } from '../../shared';
+import { ExcelUtil } from '../../shared/util/ExcelUtil';
 
 function LoadExcel ({callback}) {
 
