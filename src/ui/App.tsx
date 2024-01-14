@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div>
-      {completFlag ? <text>{keyId}</text> : <text>please set Key ID</text>}
+      {completFlag ? <text>current Key ID: {keyId}</text> : <text>please set Key ID</text>}
       {!completFlag ? <LoadExcel callback={completeCallback}/> : <Running keyId={keyId}/>}
     </div>
   );

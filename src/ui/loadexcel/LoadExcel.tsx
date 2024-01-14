@@ -7,30 +7,28 @@ function LoadExcel ({callback}) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [completFlag, setCompleteFlag] = useState(true);
-  const [excelData, setExcelData] = useState<any[] | null>(null);
-
+  const [textValue, setTextValue] = useState<string>('');
+ 
   const handleFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
 
     if (file) {
       setIsLoading(true);
-      const parsedData = await ExcelUtil.parseExcelFile(file, textValue);
-      GlobalVars.datas = parsedData;
-      setExcelData(parsedData);
+      await ExcelUtil.parseExcelFile(file, textValue);
       setIsLoading(false);
     }
   };
-  
-  const [textValue, setTextValue] = useState<string>('');
 
   const onTextChange = (id: string, value: string) => {
     setTextValue(value);
   };
 
   const onClickRunButton = () => {
+    if(textValue == "")
+      return;
     if(completFlag)
       setCompleteFlag(false);
-    else
+    else 
       callback(textValue);
   }
   
